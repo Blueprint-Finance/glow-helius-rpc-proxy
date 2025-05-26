@@ -3,9 +3,17 @@ main = "./src/index.ts"
 compatibility_date = "2022-05-03"
 
 [env.dev]
-vars = { ENVIRONMENT = "dev", CORS_ALLOW_ORIGIN = "https://app.shinylab.xyz,http://localhost:3000", NETWORK = "devnet" }
 route = "rpc.shinylab.xyz"
 
+[env.dev.vars]
+ENVIRONMENT = "dev"
+CORS_ALLOW_ORIGIN = "https://app.dev.shinylab.xyz,https://app.staging.shinylab.xyz,http://localhost:3000"
+NETWORK = "devnet"
+
 [env.prod]
-vars = { ENVIRONMENT = "prod", CORS_ALLOW_ORIGIN = "https://app.glowfinance.xyz,https://app.preprod.shinylab.xyz", NETWORK = "mainnet" }
 route = "rpc.glowfinance.xyz"
+
+[env.prod.vars]
+ENVIRONMENT = "prod"
+CORS_ALLOW_ORIGIN = "https://app.glowfinance.xyz,https://app.preprod.shinylab.xyz"
+NETWORK = "mainnet"

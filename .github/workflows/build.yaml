@@ -1,23 +1,40 @@
-name: Build
+name: Deploy to Cloudflare
 on:
-  push:
-  pull_request:
-  repository_dispatch:
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: "Environment to deploy to"
+        required: true
+        default: "dev"
+        type: choice
+        options:
+          - dev
+          - prod
 jobs:
   deploy:
     runs-on: ubuntu-latest
     timeout-minutes: 60
+    environment: ${{ inputs.environment }}
     steps:
       - uses: actions/checkout@v4
+
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '22'
+
       - name: Install dependencies
         run: npm install
-      - name: Publish
+
+      - name: Publish ${{ inputs.environment }}
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CF_API_TOKEN }}
+          accountId: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
+          environment: ${{ inputs.environment }}
+          secrets: |
+            HELIUS_API_KEY
         env:
-          CLOUDFLARE_ACCOUNT_ID: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
+          HELIUS_API_KEY: ${{ secrets.HELIUS_API_KEY }}
+
+          
