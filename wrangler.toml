@@ -8,7 +8,7 @@ custom_domain = true
 
 [env.dev.vars]
 ENVIRONMENT = "dev"
-CORS_ALLOW_ORIGIN = "https://app.dev.shinylab.xyz,https://app.staging.shinylab.xyz,http://localhost:3000"
+CORS_ALLOW_ORIGIN = "https://app.glowfinance.xyz,https://app.dev.shinylab.xyz,https://app.staging.shinylab.xyz,https://app.preprod.shinylab.xyz,http://localhost:3000,@https://(.+)-blueprint-finance\\.vercel\\.app"
 NETWORK = "devnet"
 
 [env.prod.route]
@@ -17,5 +17,5 @@ custom_domain = true
 
 [env.prod.vars]
 ENVIRONMENT = "prod"
-CORS_ALLOW_ORIGIN = "https://app.glowfinance.xyz,https://app.preprod.shinylab.xyz"
+CORS_ALLOW_ORIGIN = "https://app.glowfinance.xyz,https://app.dev.shinylab.xyz,https://app.staging.shinylab.xyz,https://app.preprod.shinylab.xyz,http://localhost:3000,@https://(.+)-blueprint-finance\\.vercel\\.app"
 NETWORK = "mainnet"
