@@ -1,4 +1,11 @@
-name = "glow-helius-rpc-proxy" # todo
+name = "glow-helius-rpc-proxy"
 main = "./src/index.ts"
 compatibility_date = "2022-05-03"
 
+[env.dev]
+vars = { ENVIRONMENT = "dev", CORS_ALLOW_ORIGIN = "https://app.shinylab.xyz,http://localhost:3000", NETWORK = "devnet" }
+route = "rpc.shinylab.xyz"
+
+[env.prod]
+vars = { ENVIRONMENT = "prod", CORS_ALLOW_ORIGIN = "https://app.glowfinance.xyz,https://app.preprod.shinylab.xyz", NETWORK = "mainnet" }
+route = "rpc.glowfinance.xyz"
