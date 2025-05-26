@@ -2,16 +2,18 @@ name = "glow-helius-rpc-proxy"
 main = "./src/index.ts"
 compatibility_date = "2022-05-03"
 
-[env.dev]
-route = "rpc.shinylab.xyz"
+[env.dev.route]
+pattern = "rpc.shinylab.xyz"
+custom_domain = true
 
 [env.dev.vars]
 ENVIRONMENT = "dev"
 CORS_ALLOW_ORIGIN = "https://app.dev.shinylab.xyz,https://app.staging.shinylab.xyz,http://localhost:3000"
 NETWORK = "devnet"
 
-[env.prod]
-route = "rpc.glowfinance.xyz"
+[env.prod.route]
+pattern = "rpc.glowfinance.xyz"
+custom_domain = true
 
 [env.prod.vars]
 ENVIRONMENT = "prod"
