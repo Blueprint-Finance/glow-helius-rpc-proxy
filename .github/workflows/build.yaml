@@ -29,7 +29,7 @@ jobs:
       - name: Publish ${{ inputs.environment }}
         uses: cloudflare/wrangler-action@v3
         with:
-          apiToken: ${{ secrets.CF_API_TOKEN }}
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
           environment: ${{ inputs.environment }}
           secrets: |
