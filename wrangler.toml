@@ -3,7 +3,7 @@ main = "./src/index.ts"
 compatibility_date = "2022-05-03"
 
 [env.dev.route]
-pattern = "rpc.shinylab.xyz"
+pattern = "rpc.dev.shinylab.xyz"
 custom_domain = true
 
 [env.dev.vars]
