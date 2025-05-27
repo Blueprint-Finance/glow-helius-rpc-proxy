@@ -3,9 +3,9 @@ on:
   workflow_dispatch:
     inputs:
       environment:
-        description: "Environment to deploy to"
+        description: 'Environment to deploy to'
         required: true
-        default: "dev"
+        default: 'dev'
         type: choice
         options:
           - dev
@@ -36,5 +36,3 @@ jobs:
             HELIUS_API_KEY
         env:
           HELIUS_API_KEY: ${{ secrets.HELIUS_API_KEY }}
-
-          
